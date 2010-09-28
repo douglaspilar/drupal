@@ -1,7 +1,12 @@
-// $Id: CHANGELOG.txt,v 1.1.2.20 2010/05/20 18:00:59 greenskin Exp $
+// $Id: CHANGELOG.txt,v 1.1.2.24 2010/08/08 19:23:09 greenskin Exp $
 
-Module Filter x.x-x.x, xxxx-xx-xx
+Module Filter 6.x-1.5, 2010-08-08
 ---------------------------------
+by greenSkin: Fixed a minor syntax issue.
+#837846 by Sweetchack, greenSkin: Code Optimization - truncate the module code
+  and move appropriate code to separate files.
+#840324 by greenSkin: Resolved issue with two modules sharing the same name not
+  showing correctly in tabbed version of module page.
 
 
 Module Filter 6.x-1.4, 2010-05-20

@@ -1,9 +1,34 @@
 <?php
-// $Id: module_filter.admin.inc,v 1.1.2.1 2010/04/07 20:55:32 greenskin Exp $
+// $Id: module_filter.admin.inc,v 1.1.2.2 2010/06/29 17:09:30 greenskin Exp $
+
+/**
+ * @file
+ *
+ * @author greenSkin
+ */
 
 /*******************************************************************************
  * Callback Functions, Forms, and Tables
  ******************************************************************************/
+
+function module_filter_autocomplete($string) {
+  $files = module_rebuild_cache();
+  $matches = array();
+  $count = 1;
+  foreach (module_rebuild_cache() as $id => $module) {
+    if ($count > 10) {
+      break;
+    }
+
+    $name = $module->info['name'];
+    if (ereg(strtolower($string), strtolower($name)) && strtolower($string) != strtolower($name)) {
+      $matches[$name] = $name;
+      $count++;
+    }
+  }
+  print drupal_to_js($matches);
+  exit();
+}
 
 /**
  * Settings form for module filter.

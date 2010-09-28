@@ -74,7 +74,7 @@ function db_connect($url) {
   //   server.
   // - 2 means CLIENT_FOUND_ROWS: return the number of found
   //   (matched) rows, not the number of affected rows.
-  $connection = @mysql_connect($url['host'], $url['user'], $url['pass'], TRUE, MYSQL_CLIENT_INTERACTIVE);
+  $connection = @mysql_connect($url['host'], $url['user'], $url['pass'], TRUE, 2);
   if (!$connection || !mysql_select_db(substr($url['path'], 1))) {
     // Show error screen otherwise
     _db_error_page(mysql_error());
@@ -352,4 +352,3 @@ function db_column_exists($table, $column) {
 /**
  * @} End of "ingroup database".
  */
-

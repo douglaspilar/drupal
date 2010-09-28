@@ -89,10 +89,12 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-if($_SERVER['SERVER_NAME'] == 'localhost'):
-	$db_url = 'mysqli://root:local@localhost/saomarcos';
+//echo '<pre>' , print_r($_SERVER), '</pre>';
+//echo '<pre>', dirname($_SERVER['SCRIPT_NAME']), '</pre>';
+if($_SERVER['SERVER_NAME'] == 'pclinux'):
+	$db_url = 'mysql://root:mmd4mysql@localhost' . dirname($_SERVER['SCRIPT_NAME']);
 else:
-	$db_url = 'mysqli://maiquelleonel03:passliapires@mysql.maiquelleonel.com.br/maiquelleonel03';
+	$db_url = '';
 endif;
 $db_prefix = '';
 
@@ -230,3 +232,4 @@ ini_set('url_rewriter.tags',        '');
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # );
+

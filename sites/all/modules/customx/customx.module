@@ -1,15 +1,15 @@
-<?php 
+<?php
 
 function pr($data){
     echo '<pre>',print_r($data,1),'</pre>';
 }
 
-function bp(){ 
+function bp(){
 	return base_path() . drupal_get_path('theme','ecotron');
 }
 /**
  * verifica a existencia de um parâmetro na URL
- * @text [string] $param a string que se quer verificar 
+ * @text [string] $param a string que se quer verificar
  * @return [boolean]
  */
 function in_url($text){
@@ -23,7 +23,7 @@ function sanitize($string){
 }
 
 function urlfy($string){
-	return strtolower(sanitize($string));
+	return sanitize(strtolower($string));
 }
 /**
  * alias from base_path . drupal_get_path('theme','frontec');
@@ -33,10 +33,10 @@ function gp($theme){
 }
 /**
  * create array with params
- * @param [mixed] elements 
+ * @param [mixed] elements
  */
-function a(){ 
-	return func_get_args(); 
+function a(){
+	return func_get_args();
 }
 /**
  * create a associtive array (hash) with params where param odd is a key em param even is a value
@@ -49,5 +49,11 @@ function aa(){
 	foreach(func_get_args() as $i => $v) if($i % 2) $vs[] = $v; else $ks[] = $v;
 	if(count($ks) > count($vs)) array_push($vs,'');
 	return array_combine($ks,$vs);
+}
+
+function ie($version=false){
+    $browser = $_SERVER['HTTP_USER_AGENT'];
+    $comparsion = ($version)? 'MSIE '. $version : 'MSIE';
+    return strstr($browser,$comparsion);
 }
 

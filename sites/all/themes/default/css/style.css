@@ -1,2 +1,5 @@
 #admin-menu { font-size:13px; }
+#autocomplete{background-color:white;}
+.form-autocomplete{background-position:99% 6px!important}
+.form-autocomplete:focus{background:url(../../../../../misc/throbber.gif) no-repeat 99% -14px!important}
 

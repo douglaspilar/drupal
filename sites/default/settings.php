@@ -24,7 +24,7 @@
  * is searched in the following directories:
  *
  *  1. sites/www.drupal.org.mysite.test
- *  2. sites/drupal.org.mysite.test
+ *  2. sitesejQJGfzg/drupal.org.mysite.test
  *  3. sites/org.mysite.test
  *
  *  4. sites/www.drupal.org.mysite
@@ -94,7 +94,7 @@
 if($_SERVER['SERVER_NAME'] == 'pclinux'):
 	$db_url = 'mysql://root:mmd4mysql@localhost' . dirname($_SERVER['SCRIPT_NAME']);
 else:
-	$db_url = '';
+	$db_url = 'mysql://mmdadigital05:ejQJGfzg@mysql.mmdadigital.com.br/mmdadigital05';
 endif;
 $db_prefix = '';
 

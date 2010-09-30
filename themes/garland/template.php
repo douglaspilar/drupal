@@ -47,6 +47,7 @@ function phptemplate_preprocess_page(&$vars) {
   if (module_exists('color')) {
     _color_page_alter($vars);
   }
+
 }
 
 /**
@@ -103,3 +104,4 @@ function phptemplate_get_ie_styles() {
 
   return $iecss;
 }
+

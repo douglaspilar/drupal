@@ -25,6 +25,7 @@
  * @see template_preprocess()
  * @see template_preprocess_block()
  */
+_pathauto_include();
 if ($block->subject && arg(0) != 'admin') {
 	$id = strtolower(pathauto_cleanstring($block->subject));
 } else {
@@ -40,3 +41,4 @@ if ($block->subject && arg(0) != 'admin') {
     <?php print $block->content ?>
   </div>
 </div>
+

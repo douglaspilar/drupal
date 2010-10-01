@@ -74,7 +74,7 @@ BUSCA
 ENVIAR MENSAGEM
 **********/
 #homenagem{
-	padding: 260px 0 170px;
+	padding: 290px 0 120px;
 }
 
 a.envie-homenagem{
@@ -103,32 +103,38 @@ MENSAGENS
 p.destinatario{
 	color: #333;
 	font-style: italic;
-	font-weight: bold;
 	padding: 15px 15px 5px;
 	height: 20px;
+	line-height: 1em;
     text-transform: lowercase;
-    font-size: 11px;
+    font-size: 12px;
 
 }
 
 p.destinatario span{
 	color: #666;
+	display: block;
+	float: left;
+	font-size: 11px;
 	font-weight: normal;
-	margin-right: 2px;
+	height: 20px;
+	margin-right: 5px;
 	text-transform: lowercase;
 
 }
 
 p.texto{
-	font-size: 20px;
-	padding: 0px 15px;
-	height: 60px;
+	color: #34416E;
+	font-size: 18px;
+	padding: 12px 15px 0;
+	line-height: 1.2em;
+	height: 70px;
 	overflow: hidden;
 }
 
 p.remetente{
 	color: white;
-	margin: 30px 0 0 40px;
+	margin: 10px 0 0 40px;
 	text-shadow: 0 -1px 0px #467E36;
 	text-transform: capitalize;
 
@@ -210,6 +216,7 @@ FOOTER
 
 .mmda p a{
     color:#fff;
+    display: none;
     text-decoration:none;
 }
 
@@ -312,6 +319,11 @@ a.facebook:hover, a.twitter:hover{
 	width:390px !important;
 }
 
+#node-form .form-item .form-text.error, label.error {
+	border: none !important;
+	border-bottom: 2px dotted red !important;
+}
+
 #node-form .form-item .form-autocomplete{
 	width:330px !important;
 }
@@ -332,7 +344,18 @@ a.facebook:hover, a.twitter:hover{
 	text-align:right;
 }
 
-#edit-submit{
+.page-criar-pagina #node-form #edit-submit{
+	background: url(../imagens/botao-enviar.png) no-repeat left top;
+	border: none;
+	height: 42px;
+	margin-bottom: 10px;
+	margin-left: 142px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 203px;
+}
+
+.page-criar-mensagem #node-form #edit-submit{
 	background: url(../imagens/botao-enviar.png) no-repeat left top;
 	border: none;
 	height: 42px;
@@ -352,10 +375,6 @@ a.facebook:hover, a.twitter:hover{
 
 .error{
 	padding: 0 !important;
-}
-
-.form-item.error{
-	border: 1px solid red !important;
 }
 
 .links a.active{
@@ -414,3 +433,45 @@ ENVIADO
 	width: 420px;
 }
 
+.node-type-page .node{
+	background: #fff;
+	margin: 40px 0px;
+	padding: 30px;
+}
+
+.node-type-page .node h2{
+	padding:20px 0px 10px;
+}
+
+.node-type-page .node h2 a{
+	color:#2E3864;
+	font-size:22px;
+	font-style:italic;
+	font-weight:normal;
+	text-decoration: none;
+}
+
+.node-type-page .node h3{
+	color:#666;
+	font-size:18px;
+	font-style:italic;
+	font-weight:normal;
+	padding:30px 0 20px;
+}
+
+.node-type-page .node p{
+	padding-bottom: 10px;
+}
+
+.node-type-page .node a{
+	color: #344278;
+}
+.node-type-page .node a:hover{
+	color: #003399;
+}
+
+.page-cartao-enviado-com-sucesso .node{
+	background-color: transparent;
+	margin: 0;
+	padding: 0;
+}

@@ -2,11 +2,11 @@
     <?php echo $footer ?>
 	<div class="tarja container_12">
 		<div class="compartilhe grid_5">
-			<p>Compartilhe:</p> <a href="#" title="Compartilhe no Facebook" class="facebook">Facebook</a> <a href="#" title="Compartilhe no Twitter" class="twitter">Twitter</a>
+			<p>Compartilhe:</p> <a href="http://www.facebook.com/sharer.php?u=http://mesdomedicoweinmann.com.br" title="Compartilhe no Facebook" class="facebook" target="_blank">Facebook</a> <a href="http://twitter.com/home?status=Acesse%20www.mesdomedicoweinmann.com.br%20e%20faça%20uma%20homenagem%20para%20seu%20médico." title="Compartilhe no Twitter" class="twitter" target="_blank">Twitter</a>
 		</div>
 		<div class="links grid_5 prefix_2">
-			<a href="<?php echo base_path().'conteudo/Privacidade.pdf' ?>" title="Política de privacidade">Política de privacidade</a>
-			<a href="<?php echo base_path().'conteudo/Termos.pdf' ?>" title="Sobre a campanha">Sobre a campanha</a>
+			<?php echo l('Política de privacidade','politica-privacidade',aa('attributes',aa('id','politica'))); ?>
+		    <?php echo l('Sobre a campanha','sobre-a-campanha',aa('attributes',aa('class','ler-sobre'))) ?>
 		</div>
 	</div>
 	<div class="mmda container_12">

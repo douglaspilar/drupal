@@ -47,7 +47,7 @@ $class = strtolower(pathauto_cleanstring($title));
 					<?php print $tabs; ?>
 				</div>
 			<?php endif; ?>
-			<?php if((in_http_referer('node/add/mensagem') or in_http_referer('criar/mensagem')) && !user_is_logged_in()): ?>
+			<?php/* if((in_http_referer('node/add/mensagem') or in_http_referer('criar/mensagem')) && !user_is_logged_in()): ?>
                 <div id="enviado" class="container_12">
                     <div class="enviado grid_12">
                     <h4>Cartão enviado com sucesso!</h4>
@@ -57,9 +57,9 @@ $class = strtolower(pathauto_cleanstring($title));
                		</div>
 		            </div>
         	    </div>
-            <?php else: ?>
+            <?php else: */?>
     			<?php echo $content;?>
-            <?php endif; ?>
+            <?php /* endif; */ ?>
 	    </div>
 	</div>
 	<?php include 'inc/footer.php'; ?>
@@ -76,11 +76,18 @@ $class = strtolower(pathauto_cleanstring($title));
     });
 </script> */?>
 <script type="text/javascript">
-$(document).pngFix();
-$('#edit-title').attr('maxlength',30);
+$('#edit-title').attr('maxlength',40);
 $('#edit-title').addClass('countme {limit:20, stripHTMLTags:true, jqueryUI:true}');
 $(".countme").countdata();
 </script>
+<?php if(ie(6)): ?>
+<script type="text/javascript" src="<?php echo $path ?>/js/jquery.pngFix.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).pngFix();
+        });
+    </script>
+<?php endif; ?>
 <?php print $closure; ?>
 </body>
 </html>

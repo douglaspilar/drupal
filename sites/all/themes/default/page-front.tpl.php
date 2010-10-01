@@ -8,15 +8,6 @@ $class = strtolower(pathauto_cleanstring($title));
 <head>
 	<title><?php print $head_title; ?></title>
 	<?php print $head; ?>
-    <!--[if IE 6]>
-	<link rel="stylesheet" type="text/css" href="css/ie6.css" media="screen" />
-	<![endif]-->
-	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="css/ie7.css" media="screen" />
-	<![endif]-->
-	<!--[if IE 8]>
-	<link rel="stylesheet" type="text/css" href="css/ie8.css" media="screen" />
-	<![endif]-->
 	<?php print $styles; ?>
 
 	<?php
@@ -26,7 +17,11 @@ $class = strtolower(pathauto_cleanstring($title));
 			@import url("<?php echo $path ?>/css/admin.css");
 		</style>
 	<?php endif ?>
+	<link rel="stylesheet" href="<?php echo $path ?>/js/fancybox/jquery.fancybox-1.3.1.css" media="screen" />
 	<script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
+
+
+
 </head>
 <body class="<?php print $body_classes; echo ' page-' . $class ?>">
 
@@ -88,14 +83,29 @@ $class = strtolower(pathauto_cleanstring($title));
     </div>
 	<?php include 'inc/footer.php'; ?>
 </div>
-<?php /*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> */?>
 <?php print $scripts; ?>
-<script src="js/jquery.pngFix.pack.js"></script>
+<?php //<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+?>
+<script type="text/javascript" src="<?php echo $path ?>/js/fancybox/jquery.fancybox-1.3.1.js"></script>
+<?php if(ie(6)): ?>
+<script type="text/javascript" src="<?php echo $path ?>/js/jquery.pngFix.pack.js"></script>
+<?php endif; ?>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $(document).pngFix();
+    $(function(){
+        <?php if(ie(6)): ?>
+            $(document).pngFix();
+        <?php endif; ?>
+        $("#politica").fancybox({
+		        'width'				: '75%',
+		        'height'			: '75%',
+                'autoScale'     	: false,
+                'transitionIn'		: 'none',
+		        'transitionOut'		: 'none',
+		        'type'				: 'iframe'
+        });
     });
 </script>
+
 <?php print $closure; ?>
 </body>
 </html>

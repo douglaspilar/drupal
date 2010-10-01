@@ -5,8 +5,8 @@ version = "1.0"
 core = "6.x"
 engine = phptemplate
 
-regions[left] = Left sidebar
-regions[right] = Right sidebar
+;regions[left] = Left sidebar
+;regions[right] = Right sidebar
 regions[content] = Content
 regions[header] = Header
 regions[footer] = Footer
@@ -19,7 +19,12 @@ stylesheets[all][] = css/text.css
 stylesheets[all][] = css/960.css
 stylesheets[all][] = css/style.css
 
-;scripts[] = jquery.validate.min.js
-;scripts[] = jquery.form.js
+conditional-stylesheets[if IE][all][] = css/ie.css
+conditional-stylesheets[if IE 7][all][] = css/ie7.css
+conditional-stylesheets[if IE 8][all][] = css/ie8.css
+
+scripts[] = jquery.validate.min.js
+scripts[] = jquery.form.js
 scripts[] = script.js
+scripts[] = js/jquery.pngFix.pack.js
 

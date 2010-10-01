@@ -1,18 +1,15 @@
-<div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
-	<?php print $picture ?>
-	<?php if (!$page && $node->type != 'page'): ?>
-		<h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
-	<?php endif; ?>
-	<div class="meta">
-		<?php if ($is_admin && $submitted): ?>
-			<span class="submitted"><?php print $submitted ?></span>
-		<?php endif; ?>
-		<?php if ($terms): ?>
-			<div class="terms terms-inline"><?php print $terms ?></div>
-		<?php endif;?>
-	</div>
-	<div class="content">
-		<?php print $content ?>
-	</div>
-	<?php print $links; ?>
-</div>
+<?php if($is_front): ?>
+    <div class="grid_3 alpha mensagem">
+<?php endif; ?>
+        <div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
+	        <div class="content">
+	            <?php $medico = explode(' - ',$node->field_medico_destinatario[0]['safe']['title']) ?>
+	            <p class="destinatario"><span>para</span><?php echo $medico[1] ?></p>
+	            <p class="texto"><?php echo $node->title ?></p>
+	            <p class="remetente"><span>de</span><?php echo $node->field_nome_remetente[0]['safe'] ?></p>
+	        </div>
+        </div>
+<?php if($is_front): ?>
+    </div>
+<?php endif; ?>
+

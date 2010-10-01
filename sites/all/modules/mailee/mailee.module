@@ -1,0 +1,58 @@
+<?php
+//define('MAILEE_CONFIG_SITE', 'http://api.ce17bde8a8818.weinmann.maileebeta.me/');
+//require 'Mailee.php';
+
+//$contact = new MaileeContact();
+//$contacts = $contact->find('all');
+
+//echo count($contacts . "\n");
+
+//foreach($contacts as $c){
+//  echo $c->email . "\n";
+//}
+
+/*
+ $contact = new MaileeContact(array(
+    'name' => 'Harry Seldon',
+    'email' => 'seldon@terminus.com',
+    'internal_id' => 412905575 * opcional
+ ));
+ $contact->save();
+*/
+
+//$contact = new MaileeContact();
+//$paciente = $contact->find('first', array('email' => 'maiquel@mmdadigital.com.br'));
+//$medico = (object) $contact->find('first', array('email' => 'maiquel@mmdadigital.com.br'));
+//pr($paciente);
+//exit();
+//$paciente[0]->_data['dynamic-values'] = 'enviarenviado';
+//pr($paciente);
+/*
+ONÓRIO SAMPAIO rotina pra setar o html da mensagem e o envio
+
+$paciente->enviar = $medico->enviar = 'enviado';
+$paciente->save();
+$medico->save();
+
+*/
+//$contact = new MaileeContact();
+//print_r($contact->find('first'));
+
+//$contact = new MaileeContact();
+//id de teste para email da mmda 2713584 maiquel@mmdadigital.com.br
+//print_r($contact->find_by_internal_id(2713584));
+
+
+/*
+etapas
+- no cadastro da mensagem cadastrar o email de preenchimento no mailee
+  em uma lista de pacientes.
+ONÓRIO SAMPAIO
+- na publicação da mensagem mandar o mailee disparar a mensagem com o html para
+  o médico e para o paciente.
+  - atualizar o campo enviar do medico e do paciente para sim
+  - mandar o mailee disparar para o segmento enviar sim
+  - atualizar o campo enviar do medico e do paciente para enviado
+
+*/
+

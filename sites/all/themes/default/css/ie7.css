@@ -1,0 +1,17 @@
+.busca-texto{
+	width: 250px;
+}
+
+.busca-botao{
+	height: 30px;
+}
+
+.links a{
+	margin-left: 20px;
+}
+
+#envelope-preview{
+	background: url(../imagens/cartao-frente.png) no-repeat center top;
+	height: 500px;
+	margin-top: 20px;
+}

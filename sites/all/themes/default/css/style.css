@@ -1,5 +1,416 @@
+/**********
+ADMIN
+**********/
 #admin-menu { font-size:13px; }
 #autocomplete{background-color:white;}
 .form-autocomplete{background-position:99% 6px!important}
 .form-autocomplete:focus{background:url(../../../../../misc/throbber.gif) no-repeat 99% -14px!important}
+
+/**********
+BACKGROUND
+**********/
+body{
+	background: #6EC054 url(../imagens/bg-site.jpg) repeat-x;
+}
+
+.not-front{
+	background: #6EC054 url(../imagens/bg-not-front.jpg) repeat-x;
+}
+
+/**********
+FOTO
+**********/
+#tudo{
+	background: url(../imagens/bg-foto.jpg) no-repeat top center;
+	height: 463px;
+	width: 100%;
+	z-index: 1;
+}
+
+.not-front #tudo{
+	background: none;
+	height: 463px;
+	width: 100%;
+	z-index: 1;
+
+}
+
+/**********
+TOPO
+**********/
+#topo{
+	background: url(../imagens/bg-topo.png) repeat-x;
+	height: 81px;
+	width: 100%;
+}
+
+.logo{
+	padding-top: 10px;
+}
+
+#topo h1 a{
+	background: url(../imagens/logo.png) no-repeat;
+	display: block;
+	height: 60px;
+	overflow: hidden;
+	text-indent: -999999px;
+	width: 310px;
+}
+
+/**********
+BUSCA
+**********/
+#search-block-form label{display:none}
+.busca{	padding-top: 23px;}
+
+.busca-texto, #search-block-form .form-text
+{background: url(../imagens/busca-texto.gif) no-repeat;	border: none;color: #999;font-family: Georgia, Times, serif;font-size: 13px;font-style: italic;	height: 28px;margin-right:-3px;padding-left: 5px;	width: 250px; }
+.busca-botao, #search-block-form .form-submit
+{background: url(../imagens/busca-botao.gif) no-repeat left top;border: none;height: 30px;margin-left:0 !important;text-indent: -99999px;width: 41px; }
+.busca-botao:hover, .busca-botao, #search-block-form .form-submit:hover{background: url(../imagens/busca-botao.gif) no-repeat left bottom;cursor: pointer;}
+
+.search-results .node-unpublished { background-color:transparent!important}
+/**********
+ENVIAR MENSAGEM
+**********/
+#homenagem{
+	padding: 260px 0 170px;
+}
+
+a.envie-homenagem{
+	background: url(../imagens/envie-homenagem.png) no-repeat left top;
+	display: block;
+	height: 52px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 307px;
+}
+
+a.envie-homenagem:hover{
+	background-position: left bottom;
+}
+
+/**********
+MENSAGENS
+**********/
+.mensagem{
+	background: url(../imagens/balao.png) no-repeat;
+	display: block;
+	height: 155px;
+	margin-bottom: 40px;
+}
+
+p.destinatario{
+	color: #333;
+	font-style: italic;
+	font-weight: bold;
+	padding: 15px 15px 5px;
+	height: 20px;
+    text-transform: lowercase;
+    font-size: 11px;
+
+}
+
+p.destinatario span{
+	color: #666;
+	font-weight: normal;
+	margin-right: 2px;
+	text-transform: lowercase;
+
+}
+
+p.texto{
+	font-size: 20px;
+	padding: 0px 15px;
+	height: 60px;
+	overflow: hidden;
+}
+
+p.remetente{
+	color: white;
+	margin: 30px 0 0 40px;
+	text-shadow: 0 -1px 0px #467E36;
+	text-transform: capitalize;
+
+}
+
+p.remetente span{
+    margin-right: 2px;
+    text-transform: lowercase;
+
+}
+
+/**********
+PAGINACAO
+**********/
+.pager{
+	height: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.pager li {
+    color: #354277;
+}
+
+.pager a{
+	margin: 0px 1px;
+	padding-top: 5px;
+	text-decoration: none;
+    color: #fff!important;
+    font-family:Georgia,Times,serif;
+}
+
+.pagina{
+	background: url(../imagens/pagina.jpg) no-repeat left top;
+	color: #37632B;
+	display: block;
+	height: 27px;
+	width: 77px;
+}
+
+/*.numero{
+	background: url(../imagens/pagina-numero.jpg) no-repeat left top;
+	color: #37632B;
+	height: 27px;
+	width: 32px;
+}*/
+
+.ativa{
+	background: url(../imagens/pagina-ativa.jpg) no-repeat left top;
+	color: white;
+	font-weight: bold;
+	height: 27px;
+	width: 32px;
+}
+
+.pagina:hover, .numero:hover, .ativa:hover{
+	background-position: left bottom;
+}
+
+/**********
+FOOTER
+**********/
+#footer{
+	background: url(../imagens/bg-footer.jpg) repeat-x;
+	color: white;
+	padding-top: 15px;
+	width: 100%;
+}
+
+.tarja{
+	height: 35px;
+}
+
+.mmda{
+	height: 40px;
+	padding-top: 20px;
+	text-align: right;
+}
+
+.mmda p a{
+    color:#fff;
+    text-decoration:none;
+}
+
+.mmda p a:hover{
+    text-decoration:underline;
+
+}
+
+.responsavel p{
+	float: left;
+}
+
+.tarja a{
+	color: white;
+}
+
+.tarja p{
+	color: white;
+	float: left;
+	font-style: italic;
+	font-weight: bold;
+	width: 105px;
+}
+
+a.facebook{
+	background: url(../imagens/facebook.gif) no-repeat left top;
+	color: white;
+	display: block;
+	float: left;
+	font-weight: normal;
+	height: 20px;
+	padding-left: 30px;
+	text-decoration: none;
+	width: 70px;
+}
+
+a.twitter{
+	background: url(../imagens/twitter.gif) no-repeat left top;
+	color: white;
+	display: block;
+	float: left;
+	font-weight: normal;
+	height: 20px;
+	padding-left: 30px;
+	text-decoration: none;
+	width: 70px;
+}
+
+a.facebook:hover, a.twitter:hover{
+	background-position: left bottom;
+}
+
+.links a{
+	margin-left: 30px;
+}
+
+.links a:hover{
+	text-decoration: none;
+}
+
+
+#envelope{
+	background: url(../imagens/envelope.png) no-repeat center top;
+	height: 500px;
+	margin-top: 20px;
+}
+
+.cartao{
+	background: url(../imagens/cartao.png) no-repeat;
+	height: 405px;
+	margin: 0 0 0 50px;
+	padding: 50px 0px 0px 0px;
+}
+
+.formulario h2{
+	color: #2E3864;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: normal;
+	padding-bottom: 10px;
+}
+
+.node-form label{
+	float:none !important;
+	display:inline !important;
+	color: #666;
+	display: block;
+	font-size: 13px;
+	font-style: italic;
+	font-weight: normal;
+	width: 120px;
+}
+
+#node-form .form-item .form-text {
+	display:inline !important;
+	border: none !important;
+	border-bottom: 1px dotted #666 !important;
+	color: #333;
+	font-size: 16px;
+	width:390px !important;
+}
+
+#node-form .form-item .form-autocomplete{
+	width:330px !important;
+}
+
+#autocomplete{margin:0 0 0 130px!important;}
+#node-form .form-item #edit-title{width:380px!important;}
+
+#edit-preview{
+	display: none;
+}
+
+.tarja .links li, .tarja .links li a {
+	margin-left: 0;
+}
+
+.tarja .links{
+	float: right;
+	text-align:right;
+}
+
+#edit-submit{
+	background: url(../imagens/botao-enviar.png) no-repeat left top;
+	border: none;
+	height: 42px;
+	margin-bottom: 10px;
+	margin-left: 142px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 203px;
+}
+
+.preview .node{
+	background: url(../imagens/cartao-frente.png) no-repeat center top;
+	height: 500px;
+	margin-top: 20px;
+}
+
+
+.error{
+	padding: 0 !important;
+}
+
+.form-item.error{
+	border: 1px solid red !important;
+}
+
+.links a.active{
+	color: #fff;
+}
+
+/**********
+ENVIADO
+**********/
+#enviado{
+	background: url(../imagens/envelope-fechado.png) no-repeat center bottom;
+	height: 500px;
+	margin-top: 20px;
+}
+
+.enviado{
+	height: 405px;
+	text-align: center;
+}
+
+.enviado h4{
+	color: #fff;
+	font-size: 70px;
+	font-weight: lighter;
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+.enviar-novo{
+	background: url(../imagens/enviar-novo.png) no-repeat left top;
+	border: none;
+	display: block;
+	float: left;
+	height: 42px;
+	margin-top: 5px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 203px;
+}
+
+.voltar{
+	background: url(../imagens/voltar.png) no-repeat left top;
+	border: none;
+	display: block;
+	float: left;
+	height: 42px;
+	margin-left: 10px;
+	margin-top: 5px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 203px;
+}
+
+.botoes-enviado{
+	margin: 0 auto;
+	width: 420px;
+}
 

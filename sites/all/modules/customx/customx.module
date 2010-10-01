@@ -56,4 +56,15 @@ function ie($version=false){
     $comparsion = ($version)? 'MSIE '. $version : 'MSIE';
     return strstr($browser,$comparsion);
 }
+/* altera o maxlenght do title no caso a mensagem para o medico */
+function customx_form_alter($form_id, &$form){
+    if($form_id['#node']->type == 'mensagem'){
+       $form['title'] = array('#type' => 'textfield','#maxlength' => 3);
+    }
+}
+
+function in_http_referer($text){
+	$text = preg_replace('/\//','\/',urlfy($text)); // for full paths
+	return preg_match('/('.$text.')/i',$_SERVER['HTTP_REFERER']);
+}
 

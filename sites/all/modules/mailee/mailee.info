@@ -1,0 +1,7 @@
+name = Modulo Mailee
+description = "Prove integração com o sistema de email marketing Mailee. Ainda não tem interface de administração. as configurações devem ser feitas no próprio arquivo do modulo"
+core = 6.x
+version = "6.0.1-dev"
+project = "Mailee"
+package = "Third Party Integration"
+

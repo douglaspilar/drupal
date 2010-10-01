@@ -1,0 +1,22 @@
+.busca-texto{
+	width: 257px;
+}
+
+#footer{
+	margin-top: 40px;
+}
+
+.links a{
+	margin-left: 20px;
+}
+
+a.envie-homenagem{
+	background: url(../imagens/envie-homenagem-ie6.gif) no-repeat;
+	display: block;
+	height: 52px;
+}
+a.envie-homenagem:hover{
+    background-image: url(../imagens/envie-homenagem-ie6.gif) center -52px;
+
+}
+

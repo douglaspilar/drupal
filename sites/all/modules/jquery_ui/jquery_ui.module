@@ -95,3 +95,5 @@ function jquery_ui_get_version() {
   return $version;
 }
 
+jquery_ui_add('ui.core');
+

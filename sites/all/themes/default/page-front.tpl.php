@@ -105,6 +105,16 @@ $class = strtolower(pathauto_cleanstring($title));
         });
     });
 </script>
+<script type="text/javascript">
+$(function(){
+    $('#edit-search-block-form-1').focus(function(){
+        if($(this).val() == 'Digite seu nome e encontre suas mensagens') $(this).val('');
+    }).blur(function(){
+        if($(this).val() == '') $(this).val('Digite seu nome e encontre suas mensagens');
+    })
+	
+});
+</script>
 
 <?php print $closure; ?>
 </body>

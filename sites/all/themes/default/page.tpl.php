@@ -13,13 +13,9 @@ $class = strtolower(pathauto_cleanstring($title));
 	<?php
 	//se ta na parte de administracao adiciona o css de admin na jogada
 	if (arg(0) == 'admin' || ((arg(0) == 'node' && arg(1) == 'add') ||  (arg(0) == 'node' && arg(2) == 'edit')) ): ?>
-		<style type="text/css" media="screen">
-			@import url("<?php echo $path ?>/css/admin.css");
-		</style>
+		<link href="<?php echo $path ?>/css/admin.css" rel="stylesheet" media="screen">
 	<?php endif ?>
-    <style type="text/css">
-
-	</style>
+    <style type="text/css"></style>
 	<script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 <body class="<?php print $body_classes; echo ' page-' . $class ?>">
@@ -47,45 +43,18 @@ $class = strtolower(pathauto_cleanstring($title));
 					<?php print $tabs; ?>
 				</div>
 			<?php endif; ?>
-			<?php/* if((in_http_referer('node/add/mensagem') or in_http_referer('criar/mensagem')) && !user_is_logged_in()): ?>
-                <div id="enviado" class="container_12">
-                    <div class="enviado grid_12">
-                    <h4>Cartão enviado com sucesso!</h4>
-                    <div class="botoes-enviado">
-                       <?php echo l('Enviar novo cartão','criar/mensagem',aa('attributes',aa('class','enviar-novo'))) ?>
-                        <?php echo l('Voltar para a home','<front>', aa('attributes',aa('class','voltar'))) ?>
-               		</div>
-		            </div>
-        	    </div>
-            <?php else: */?>
-    			<?php echo $content;?>
-            <?php /* endif; */ ?>
+   			<?php echo $content;?>
 	    </div>
 	</div>
 	<?php include 'inc/footer.php'; ?>
 </div>
-<?php /*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> */?>
 <?php print $scripts; ?>
-<script src="js/jquery.pngFix.pack.js"></script>
-<script src="js/ui.core.min.js"></script>
-<script src="js/jquery.metadata.js"></script>
-<script src="js/jquery.countdata.js"></script>
-<?php /*<script type="text/javascript">
-    $(document).ready(function(){
-        $(document).pngFix();
-    });
-</script> */?>
-<script type="text/javascript">
-$('#edit-title').attr('maxlength',40);
-$('#edit-title').addClass('countme {limit:20, stripHTMLTags:true, jqueryUI:true}');
-$(".countme").countdata();
-</script>
 <?php if(ie(6)): ?>
-<script type="text/javascript" src="<?php echo $path ?>/js/jquery.pngFix.pack.js"></script>
+    <script type="text/javascript" src="<?php echo $path ?>/js/jquery.pngFix.pack.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $(document).pngFix();
-        });
+       $(document).ready(function(){
+           $(document).pngFix();
+       });
     </script>
 <?php endif; ?>
 <?php print $closure; ?>

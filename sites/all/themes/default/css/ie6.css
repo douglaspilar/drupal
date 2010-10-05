@@ -12,13 +12,6 @@ form#node-form {background-color:#F0F0F0!important;}
 form#node-form div {zoom:1!important;}
 .form-submit {clear:both!important;}
 div#autocomplete{margin:28px 0 0 0!important;}
-
+.envie-homenagem{background:url("../imagens/envie-homenagem-ie6.png") no-repeat scroll left top transparent!important;}
 .page-criar-mensagem #edit-submit {background:url("../imagens/botao-enviar.png") no-repeat scroll left top transparent!important;
-position:absolute!important;margin-top:-30px!important;padding-left:999px!important;}
-
-a.envie-homenagem{background:url("../imagens/envie-homenagem-ie6.png") no-repeat scroll left top transparent!important;}
-div.node-form #edit-submit{background:url("../imagens/botao-enviar-ie.png") no-repeat scroll left top transparent!important;}
-.botoes-enviado .enviar-novo{background:url("../imagens/enviar-novo.png") no-repeat scroll left top transparent!important;}
-.botoes-enviado .voltar{background:url("../imagens/voltar-ie.png") no-repeat scroll left top transparent!important;}
-
-.content{border:10px solid red;}
+position:absolute!important;margin-top:-30px!important;padding:0!important;}

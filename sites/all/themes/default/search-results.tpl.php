@@ -20,9 +20,16 @@
  *
  * @see template_preprocess_search_results()
  */
+ //pr($variables['results']);
+ $total_messages = 0;
+ foreach($variables['results'] as $result):
+	if($result['node']->type == 'mensagem') $total_messages++;
+ endforeach;
 ?>
 <div class="search-results <?php print $type; ?>-results container_12">
-  <?php print $search_results; ?>
+  <?php if($total_messages > 0): echo $search_results; else: ?>  
+	<p>Nenhuma mensagem para o nome pesquisado</p>
+  <?php endif ?>
 </div>
-<?php print $pager; ?>
+<?php print $pager ?>
 

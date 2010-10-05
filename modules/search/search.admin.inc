@@ -61,7 +61,13 @@ function search_admin_settings() {
   $form['indexing_settings']['info'] = array('#value' => t('<p><em>Changing the settings below will cause the site index to be rebuilt. The search index is not cleared but systematically updated to reflect the new settings. Searching will continue to work but new content won\'t be indexed until all existing content has been re-indexed.</em></p><p><em>The default settings should be appropriate for the majority of sites.</em></p>'));
   $form['indexing_settings']['minimum_word_size'] = array('#type' => 'textfield', '#title' => t('Minimum word length to index'), '#default_value' => variable_get('minimum_word_size', 3), '#size' => 5, '#maxlength' => 3, '#description' => t('The number of characters a word has to be to be indexed. A lower setting means better search result ranking, but also a larger database. Each search query must contain at least one keyword that is this size (or longer).'));
   $form['indexing_settings']['overlap_cjk'] = array('#type' => 'checkbox', '#title' => t('Simple CJK handling'), '#default_value' => variable_get('overlap_cjk', TRUE), '#description' => t('Whether to apply a simple Chinese/Japanese/Korean tokenizer based on overlapping sequences. Turn this off if you want to use an external preprocessor for this instead. Does not affect other languages.'));
-
+  /* by @maiquelleonel & @revago */
+  $form['indexing_settings']['max_search_results_per_page'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Max search results per page. Implements by MMDA Digital Drupal Team'),
+    '#default_value' => variable_get('max_search_results_per_page',10),
+    '#description' => t('Customize search results limit in page search.')
+  );
   $form['#validate'] = array('search_admin_settings_validate');
 
   // Per module settings
@@ -83,3 +89,4 @@ function search_admin_settings_validate($form, &$form_state) {
     search_wipe();
   }
 }
+

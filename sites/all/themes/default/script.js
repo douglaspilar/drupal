@@ -1,10 +1,19 @@
 $(function(){
+   $("#node-form #edit-title").attr("maxlength",40);
+   $("edit-field-nome-remetente-0-value").attr("maxlength",45);
+   var msg_search_input = 'Digite seu nome e encontre suas mensagens';
+   $('.block-search .form-text').val(msg_search_input);
+   $('.block-search .form-text').focus(function(){
+      if($(this).val() == msg_search_input){ $(this).val(''); }
+   }).blur(function(){
+      if($(this).val() == ''){$(this).val(msg_search_input); }
+   });
    var error_class ='error';
    $('.page-criar-mensagem #node-form').validate({
        rules:{
          "field_nome_remetente[0][value]": { required:true },
          "field_email_remetente[0][email]":{ required:true, email:true},
-         "field_medico_destinatario[0][nid][nid]":{ required:true},
+         "field_medico_destinatario[0][nid][nid]":{ },
          "title":{required:true},
          "field_li_politica[value]":{required:true}
        },
@@ -34,5 +43,10 @@ $(function(){
        },
        errorElement: 'strong'
    });
+});
+
+$('#node-form .node-form .voltar').click(function(e){
+   e.preventDefault();
+   history.back();
 });
 

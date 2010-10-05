@@ -57,6 +57,7 @@ function default_node_form($form) {
     $output .= "  </div>\n";
   }
   $output .= $buttons;
+  $output .= l('Voltar','<front>',aa('attributes',aa('class','voltar')));
   $output .= "</div>\n";
 
   return $output;

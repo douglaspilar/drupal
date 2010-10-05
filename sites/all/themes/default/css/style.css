@@ -10,7 +10,7 @@ ADMIN
 BACKGROUND
 **********/
 body{
-	background: #6EC054 url(../imagens/bg-site.jpg) repeat-x;
+	background: #6EC054 url(../imagens/bg-site2.jpg) repeat-x;
 }
 
 .not-front{
@@ -21,8 +21,8 @@ body{
 FOTO
 **********/
 #tudo{
-	background: url(../imagens/bg-foto.jpg) no-repeat top center;
-	height: 463px;
+	background: url(../imagens/bg-foto2.jpg) no-repeat top center;
+	/*height: 463px;*/
 	width: 100%;
 	z-index: 1;
 }
@@ -64,7 +64,7 @@ BUSCA
 .busca{	padding-top: 23px;}
 
 .busca-texto, #search-block-form .form-text
-{background: url(../imagens/busca-texto.gif) no-repeat;	border: none;color: #999;font-family: Georgia, Times, serif;font-size: 13px;font-style: italic;	height: 28px;margin-right:-3px;padding-left: 5px;	width: 250px; }
+{background: url(../imagens/busca-texto.gif) no-repeat;	border: none;color: #999;font-family: Georgia, Times, serif;font-size: 12px;font-style: italic;	height: 28px;margin-right:-3px;padding-left: 5px;	width: 250px; }
 .busca-botao, #search-block-form .form-submit
 {background: url(../imagens/busca-botao.gif) no-repeat left top;border: none;height: 30px;margin-left:0 !important;text-indent: -99999px;width: 41px; }
 .busca-botao:hover, .busca-botao, #search-block-form .form-submit:hover{background: url(../imagens/busca-botao.gif) no-repeat left bottom;cursor: pointer;}
@@ -74,7 +74,7 @@ BUSCA
 ENVIAR MENSAGEM
 **********/
 #homenagem{
-	padding: 290px 0 120px;
+	padding: 160px 0 160px;
 }
 
 a.envie-homenagem{
@@ -97,7 +97,7 @@ MENSAGENS
 	background: url(../imagens/balao.png) no-repeat;
 	display: block;
 	height: 155px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 p.destinatario{
@@ -106,7 +106,7 @@ p.destinatario{
 	padding: 15px 15px 5px;
 	height: 20px;
 	line-height: 1em;
-    text-transform: lowercase;
+    text-transform: capitalize;
     font-size: 12px;
 
 }
@@ -126,7 +126,7 @@ p.destinatario span{
 p.texto{
 	color: #34416E;
 	font-size: 18px;
-	padding: 12px 15px 0;
+	padding: 5px 15px 0;
 	line-height: 1.2em;
 	height: 70px;
 	overflow: hidden;
@@ -328,11 +328,20 @@ a.facebook:hover, a.twitter:hover{
 	width:330px !important;
 }
 
+.page-pr-visualizar form#node-form{
+    background:transparent;
+}
+
+.page-pr-visualizar div.node-form{
+    background:transparent;
+    border:none;
+}
+
 #autocomplete{margin:0 0 0 130px!important;}
 #node-form .form-item #edit-title{width:380px!important;}
 
 #edit-preview{
-	display: none;
+	/*display: none;*/
 }
 
 .tarja .links li, .tarja .links li a {
@@ -344,42 +353,45 @@ a.facebook:hover, a.twitter:hover{
 	text-align:right;
 }
 
-.page-criar-pagina #node-form #edit-submit{
-	background: url(../imagens/botao-enviar.png) no-repeat left top;
-	border: none;
-	height: 42px;
-	margin-bottom: 10px;
-	margin-left: 142px;
-	overflow: hidden;
-	text-indent: -99999px;
-	width: 203px;
-}
-
 .page-criar-mensagem #node-form #edit-submit{
-	background: url(../imagens/botao-enviar.png) no-repeat left top;
+	background: url(../imagens/botoes.png) no-repeat -384px 0;
 	border: none;
 	height: 42px;
 	margin-bottom: 10px;
-	margin-left: 142px;
+	margin-left: 0px;
 	overflow: hidden;
 	text-indent: -99999px;
-	width: 203px;
+	width: 192px;
+	display:none;
 }
 
-.preview .node{
-	background: url(../imagens/cartao-frente.png) no-repeat center top;
-	height: 500px;
-	margin-top: 20px;
+.page-criar-mensagem #node-form #edit-preview {
+   	background: url(../imagens/botoes.png) no-repeat -192px 0;
+	border: none;
+	height: 42px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	overflow: hidden;
+	text-indent: -99999px;
+	width: 192px;
+}
+.page-criar-mensagem #node-form #edit-preview:hover{
+    background-position:-192px -42px;
 }
 
-
-.error{
-	padding: 0 !important;
+.page-criar-mensagem #node-form #edit-submit:hover{
+    background-position:-384px -42px;
 }
+.preview .node{ background: url(../imagens/cartao-frente.png) no-repeat -187px -64px;height:300px; padding-top:40px }
+.preview .node .destinatario span { display:none }
+.preview .node .destinatario { color:#2E3864;font-size:22px;font-style:italic;margin:0 0 0 16px;padding-bottom:45px;}
+.preview .node .texto{ color:#333333;font-size:20px;font-style:italic;margin:0 0 0 14px;padding-bottom:25px;width:70%; }
+.preview .node .remetente{ color:#2E3864;font-size:18px;font-style:italic; margin-left:30px!important}
+.preview .node .remetente span{ margin-right: 10px; }
 
-.links a.active{
-	color: #fff;
-}
+.error{	padding: 0 !important; }
+
+.links a.active{ color: #fff; }
 
 /**********
 ENVIADO
@@ -475,3 +487,16 @@ ENVIADO
 	margin: 0;
 	padding: 0;
 }
+#node-form .voltar{
+	background:url("../imagens/voltar.png") no-repeat scroll left top transparent;
+	border:medium none;
+	display:block;
+	float:right;
+	height:42px;
+	margin-left:10px;
+	margin-top:0px;
+	overflow:hidden;
+	text-indent:-99999px;
+	width:203px;
+}
+

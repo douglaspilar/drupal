@@ -14,26 +14,21 @@ function weinmann_get_recipients(){
     $patient_email = $my_node->field_email_remetente[0]['email'];
     $doctor = node_load($node->field_medico_destinatario[0]['nid']);
     if(_weinmann_doctor_in_list($doctor)):
-        if(IN_TEST):
-          $ret['names']['doctor'] = 'Dr. Foo Manchu';
-          $ret['names']['patient'] = 'Foo Barbaz';
-          $ret['emails']['doctor'] = 'maiquel@mmdadigital.com.br';
-          $ret['emails']['patient'] = 'daniel@mmdadigital.com.br';
-        else:
-          $doctor = weinmann_parse_doctor($doctor);
-          $ret['names']['doctor'] = $doctor['name'];
-          $ret['names']['patient'] = $patient_name;
-          $ret['emails']['doctor'] = $doctor['email'];
-          $ret['emails']['patient'] = $patient_email;
-          $ret['emails']['sec_copy'] = 'suporte@mmdadigital.com.br';
-          $ret['emails']['sec_copy2'] = 'contato@mendizabal.com.br';
-        endif;
+       $doctor = weinmann_parse_doctor($doctor);
+       $ret['names']['doctor'] = $doctor['name'];
+       $ret['names']['patient'] = $patient_name;
+       $ret['emails']['doctor'] = $doctor['email'];
+       $ret['emails']['patient'] = $patient_email;
+       $ret['emails']['sec_copy'] = 'suporte@mmdadigital.com.br';
+       $ret['emails']['sec_copy2'] = 'contato@mendizabal.com.br';
+    elseif(IN_TEST):
+       $ret['names']['doctor'] = 'Dr. Foo Manchu';
+       $ret['names']['patient'] = 'Foo Barbaz';
+       $ret['emails']['doctor'] = 'maiquel@mmdadigital.com.br';
+       $ret['emails']['patient'] = 'daniel@mmdadigital.com.br';
     else:
-        $ret['emails']['doctor'] = $ret['names']['doctor'] = 'NONE';
-        $ret = false;
-    endif;
-    if(IN_TEST):
-        pr($ret);
+       $ret['emails']['doctor'] = $ret['names']['doctor'] = 'NONE';
+       $ret = false;
     endif;
     return $ret;
 }

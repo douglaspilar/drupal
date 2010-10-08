@@ -38,15 +38,23 @@ class MaileeMessage extends MaileeConfig {
         $p = array();
         foreach($params as $k => $v) $p[] = $k . '=' . rawurlencode($v);
         $Params = implode('&',$p);
-        //pr($Params);
         $headers = array('Content-Type' => 'application/x-www-form-urlencoded');
-        $new_message = drupal_http_request($uri,array(),'POST',$Params);
-        //pr($new_message);
+        $new_message = drupal_http_request($uri,$headers,'POST',$Params);
+        if(IN_TEST or $new_message->code >= 400):
+            header('Content-Type: text/xml');
+            echo $new_message->data;
+            exit();
+        endif;
         $message = new SimpleXMLElement($new_message->data);
-        //pr($message);
         $ready_uri = $this->site . $this->element_name .'/'. $message->id . '/ready.xml';
-        $res = drupal_http_request($ready_uri .'?when=now',array(),'PUT','when=now');
-        return ($res)? true : false;
+        $res = drupal_http_request($ready_uri,$headers,'PUT','when=now');
+        if(IN_TEST or $res->code >= 400):
+           header('Content-Type: text/xml');
+           echo $res->data;
+           exit();
+        else:
+            return ($res)? true : false;
+        endif;
     }
 }
 

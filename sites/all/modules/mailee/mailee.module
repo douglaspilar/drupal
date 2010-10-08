@@ -45,7 +45,8 @@ function mailee_send_mail(){
         $html = mailee_write_message($recipients);
         $data = array(
           'message[title]' => "Mês do Médico Weinmann",
-          'message[subject]' => "Mês do Médico Weinmann",
+          //'message[subject]' => "Mês do Médico Weinmann",
+          'message[subject]' => "",
           'message[from_name]' => 'Laboratório Weinmann',
           'message[from_email]' => 'marketing@weinmann.com.br',
           'message[html]' => $html,
@@ -57,8 +58,10 @@ function mailee_send_mail(){
         return false;
     endif;
 }
-//echo mailee_send_mail();
-//exit();
+if(IN_TEST):
+    echo mailee_send_mail();
+    exit();
+endif;
 global $node;
 function mailee_nodeapi(&$node,$op,$a3=NULL,$a4=NUll){
    if($node->type == 'mensagem'):

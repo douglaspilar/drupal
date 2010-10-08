@@ -1,58 +1,77 @@
 <?php
-//define('MAILEE_CONFIG_SITE', 'http://api.ce17bde8a8818.weinmann.maileebeta.me/');
-//require 'Mailee.php';
+define('MAILEE_CONFIG_SITE','http://api.ce17bde8a8818.weinmann.maileebeta.me/');
+define('IN_TEST',false);
+require 'Mailee.php';
+require 'weinmann_functions.php';
+/**
+ * @author @maiquelleonel
+ * No arquivo ActiveResource.php existe uma implementação usando a lib curl, mas ela não funcionou corretamente.
+ * Para executar as requisições usei a função drupal_http_request .
+ * Para mais detalhes sobre a função ver http://api.drupal.org/api/function/drupal_http_request/6 .
+ * Essa função talvez seja necessária pra implementações em sistemas não Drupal.
+ */
 
-//$contact = new MaileeContact();
-//$contacts = $contact->find('all');
+/**
+ * transforma o node mensagem no html do email
+ */
+function mailee_write_message($recipients){
+    global $node;
+    $TO = $recipients['names']['doctor'];
+    $FROM = $recipients['names']['patient'];
+    $MSG = (!IN_TEST)? $node->title : 'Test message send by MMDA test. On ' . date('d/m/Y H:i:s');
+    $html = <<<EOmessage
+<table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr><td><img alt="header" border="0" height="69" id="index_r1_c1" name="index_r1_c1" src="http://www.mmdadigital.com.br/projetos/weinmann_mail/index_r1_c1.jpg" width="700" /></td>
+</tr><tr><td><table align="center" border="0" cellpadding="0" cellspacing="0" width="700">
+<tr><td height="204"><img alt="body" border="0" height="204" id="index_r2_c1" name="index_r2_c1" src="http://www.mmdadigital.com.br/projetos/weinmann_mail/index_r2_c1.jpg" width="54" />
+</td><td height="204" width="296"><p><span style="font-family: georgia,serif; font-size:16px; color:#003">$TO</span><br /><br />
+ <span style="font-family: georgia,serif; font-size:18px; color:#666">$MSG</span><br /><br />
+<span style="font-family: georgia,serif; font-size:12px; color:#666"><em>de $FROM</em></span></td><td height="204">
+<img alt="body" border="0" height="204" id="index_r2_c3" name="index_r2_c3" src="http://www.mmdadigital.com.br/projetos/weinmann_mail/index_r2_c3.jpg" width="350" /></td>
+</tr></table></td></tr><tr><td><a href="http://www.mesdomedicoweinmann.com.br" target="_blank"><img alt="footer" border="0" height="103" id="index_r3_c1" name="index_r3_c1" src="http://www.mmdadigital.com.br/projetos/weinmann_mail/index_r3_c1.jpg" width="700" /></a></td>
+</tr></table>
+EOmessage;
+    return $html;
+}
 
-//echo count($contacts . "\n");
+/**
+ * manda a ordem para o mailee criar e disparar as mensagens
+ */
 
-//foreach($contacts as $c){
-//  echo $c->email . "\n";
-//}
-
-/*
- $contact = new MaileeContact(array(
-    'name' => 'Harry Seldon',
-    'email' => 'seldon@terminus.com',
-    'internal_id' => 412905575 * opcional
- ));
- $contact->save();
-*/
-
-//$contact = new MaileeContact();
-//$paciente = $contact->find('first', array('email' => 'maiquel@mmdadigital.com.br'));
-//$medico = (object) $contact->find('first', array('email' => 'maiquel@mmdadigital.com.br'));
-//pr($paciente);
+function mailee_send_mail(){
+    global $node;
+    $recipients = weinmann_get_recipients();
+    if($recipients):
+        $html = mailee_write_message($recipients);
+        $data = array(
+          'message[title]' => "Mês do Médico Weinmann",
+          'message[subject]' => "Mês do Médico Weinmann",
+          'message[from_name]' => 'Laboratório Weinmann',
+          'message[from_email]' => 'marketing@weinmann.com.br',
+          'message[html]' => $html,
+          'message[emails]' => implode(',',$recipients['emails'])
+        );
+        $message = new MaileeMessage();
+        return $message->create_and_send($data);
+    else:
+        return false;
+    endif;
+}
+//echo mailee_send_mail();
 //exit();
-//$paciente[0]->_data['dynamic-values'] = 'enviarenviado';
-//pr($paciente);
-/*
-ONÓRIO SAMPAIO rotina pra setar o html da mensagem e o envio
-
-$paciente->enviar = $medico->enviar = 'enviado';
-$paciente->save();
-$medico->save();
-
-*/
-//$contact = new MaileeContact();
-//print_r($contact->find('first'));
-
-//$contact = new MaileeContact();
-//id de teste para email da mmda 2713584 maiquel@mmdadigital.com.br
-//print_r($contact->find_by_internal_id(2713584));
-
-
-/*
-etapas
-- no cadastro da mensagem cadastrar o email de preenchimento no mailee
-  em uma lista de pacientes.
-ONÓRIO SAMPAIO
-- na publicação da mensagem mandar o mailee disparar a mensagem com o html para
-  o médico e para o paciente.
-  - atualizar o campo enviar do medico e do paciente para sim
-  - mandar o mailee disparar para o segmento enviar sim
-  - atualizar o campo enviar do medico e do paciente para enviado
-
-*/
+global $node;
+function mailee_nodeapi(&$node,$op,$a3=NULL,$a4=NUll){
+   if($node->type == 'mensagem'):
+      switch($op):
+         case "insert":
+            // aqui cadastraria os emails no mailee
+         break;
+         case "update":
+           if($node->status == 1):
+              return mailee_send_mail();
+           endif;
+         break;
+      endswitch;
+   endif;
+}
 

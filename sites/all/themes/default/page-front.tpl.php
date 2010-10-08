@@ -20,7 +20,8 @@ $class = strtolower(pathauto_cleanstring($title));
 	<link rel="stylesheet" href="<?php echo $path ?>/js/fancybox/jquery.fancybox-1.3.1.css" media="screen" />
 	<script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 
-
+	<meta property="og:title" content="Mês do médico Weinmann" />
+	<meta property="og:description" content="Espalhe por aí como seu médico faz sua vida melhor. Clique aqui e envie sua mensagem. Sua homenagem poderá ser vista no nosso site e em painéis eletrônicos da cidade* *Av. Nilo Peçanha e Carlos Gomes, Porto Alegre-RS." />
 
 </head>
 <body class="<?php print $body_classes; echo ' page-' . $class ?>">

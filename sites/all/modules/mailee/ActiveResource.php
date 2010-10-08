@@ -85,7 +85,7 @@ class ActiveResource {
 	 */
 	function save () {
 		if (isset ($this->_data['id'])) {
-			return $this->_send_and_receive ($this->site . $this->element_name . '/' . $this->_data['id'] . '.xml', 'PUT', $this->_data); // update
+		    return $this->_send_and_receive ($this->site . $this->element_name . '/' . $this->_data['id'] . '.xml', 'PUT', $this->_data); // update
 		}
 		return $this->_send_and_receive ($this->site . $this->element_name . '.xml', 'POST', $this->_data); // create
 	}
@@ -120,7 +120,7 @@ class ActiveResource {
 	  	}
 	  	//die("$req\n\n");
 	  	return $this->_send_and_receive($req, 'GET');
-  
+
 		}
 		return $this->_send_and_receive ($this->site . $this->element_name . '/' . $id . '.xml', 'GET');
 	}
@@ -161,7 +161,7 @@ class ActiveResource {
 	 * Build the request, call _fetch() and parse the results.
 	 */
 	function _send_and_receive ($url, $method, $data = array ()) {
-	  echo("**********\nBuscando... $url\n*************");
+	  //echo("**********\nBuscando... $url\n*************");
 		$params = '';
 		$el = substr ($this->element_name, 0, -1);
 		foreach ($data as $k => $v) {
@@ -183,6 +183,7 @@ class ActiveResource {
 		}
 
 		// parse XML response
+		//pr($res);
 		$xml = new SimpleXMLElement ($res);
 
 		if ($xml->getName () == $this->element_name) {
@@ -244,18 +245,13 @@ class ActiveResource {
 				break;
 			case 'PUT':
 				curl_setopt ($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-				//curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-				//curl_setopt($ch, CURLOPT_POSTFIELDS, 'body goes here');  
-				//$params .= '&_method=put'; // RoR Hack
-        #
-        curl_setopt ($ch, 'HTTP_X_HTTP_METHOD_OVERRIDE', 'PUT');
-
+				curl_setopt ($ch, 'HTTP_X_HTTP_METHOD_OVERRIDE', 'PUT');
 				curl_setopt ($ch, CURLOPT_POSTFIELDS, $params);
 				curl_setopt ($ch, CURLOPT_HTTPHEADER, array ("Content-Type: application/x-www-form-urlencoded\n"));
 				break;
 			case 'GET':
 			default:
-				break;
+			    break;
 		}
 		$res = curl_exec ($ch);
 		if (! $res) {
@@ -304,4 +300,3 @@ class ActiveResource {
 	}
 }
 
-?>

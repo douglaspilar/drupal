@@ -1,7 +1,7 @@
 <?php if($is_front): ?>
     <div class="grid_3 mensagem">
 <?php endif; ?>
-     <?php if($title == 'Cartao enviado com sucesso!'): ?>
+     <?php if($title == 'Mensagem enviada com sucesso!'): ?>
        <div id="enviado" class="container_12">
             <div class="enviado grid_12">
                 <h4>Cartão enviado com sucesso!</h4>

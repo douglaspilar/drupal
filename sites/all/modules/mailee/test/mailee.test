@@ -1,0 +1,14 @@
+<?php
+class MaileeTest extends DrupalTestCase {
+
+    public function get_info(){
+        return array('name'  => t('Integration with Mailee email market'),
+                     'desc'  => t('Execute Tests with mailee api on Drupal'),
+                     'group' => t('Mailee module'));
+    }
+
+    public function test_anything(){
+        $this->assertTrue(true,1);
+    }
+}
+

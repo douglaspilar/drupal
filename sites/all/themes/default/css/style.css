@@ -242,6 +242,7 @@ FOOTER
 }
 
 a.facebook{
+
 	background: url(../imagens/facebook.gif) no-repeat left top;
 	color: white;
 	display: block;
@@ -252,6 +253,10 @@ a.facebook{
 	text-decoration: none;
 	width: 70px;
 }
+
+.FBConnectButton_Simple{background-image:none !important;}
+.FBConnectButton_Text_Simple{margin:0 !important;}
+.FBConnectButton_Text_Simple:hover{text-decoration:none !important;}
 
 a.twitter{
 	background: url(../imagens/twitter.gif) no-repeat left top;
@@ -328,15 +333,6 @@ a.facebook:hover, a.twitter:hover{
 	width:330px !important;
 }
 
-.page-pr-visualizar form#node-form{
-    background:transparent;
-}
-
-.page-pr-visualizar div.node-form{
-    background:transparent;
-    border:none;
-}
-
 #autocomplete{margin:0 0 0 130px!important;}
 #node-form .form-item #edit-title{width:380px!important;}
 
@@ -386,8 +382,7 @@ a.facebook:hover, a.twitter:hover{
 .preview .node .destinatario span { display:none }
 .preview .node .destinatario { color:#2E3864;font-size:22px;font-style:italic;margin:0 0 0 16px;padding-bottom:45px;}
 .preview .node .texto{ color:#333333;font-size:20px;font-style:italic;margin:0 0 0 14px;padding-bottom:25px;width:70%; }
-.preview .node .remetente{ color:#2E3864;font-size:18px;font-style:italic; margin-left:30px!important}
-.preview .node .remetente span{ margin-right: 10px; }
+.preview .node .remetente{ color:#2E3864;font-size:18px;font-style:italic;padding-left:30px!important }
 
 .error{	padding: 0 !important; }
 

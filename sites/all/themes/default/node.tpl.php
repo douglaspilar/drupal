@@ -2,7 +2,7 @@
 
 <?php print $picture ?>
 
-<?php if (!$is_front && $title != 'Cartao enviado com sucesso!'): ?>
+<?php if (!$is_front && $title != 'Mensagem enviada com sucesso!'): ?>
 	<h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
 <?php endif; ?>
 

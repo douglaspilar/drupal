@@ -115,11 +115,16 @@ function moderation_switch_moderation($obj_id, $obj_type) {
  * @param string $attribute one of 'status', 'promote', 'sticky'
  */
 function moderation_switch_attribute($obj_id, $obj_type, $attribute) {
-  global $user;
+  global $user,$node;
 
   if ($obj_type == 'node') {
     $status_new = !db_result(db_query("SELECT %s FROM {node} WHERE nid=%d", $attribute, $obj_id));
     $success = db_query("UPDATE {node} SET %s=%d WHERE nid=%d", $attribute, $status_new, $obj_id);
+    if($attribute == 'status' && $status_new){
+       $node = node_load($obj_id);
+       $send = mailee_nodeapi($node,'update');
+       $mailee_status = ($send)? 'Send message with MaileeAPI' : 'Nothing to send, doctor out of List';
+    }
   }
   else if ($obj_type == 'comment') {
     $status_new = !db_result(db_query("SELECT %s FROM {comments} WHERE cid=%d", $attribute, $obj_id));
@@ -127,7 +132,7 @@ function moderation_switch_attribute($obj_id, $obj_type, $attribute) {
   }
 
   db_query("INSERT INTO {moderation} (obj_id, obj_type, uid, attribute, status, created) VALUES (%d, '%s', %d, '%s', %d, %d)", $obj_id, $obj_type, $user->uid, $attribute, $status_new, time());
-  return array($success, $status_new, $attribute);
+  return array($success, $status_new, $attribute,$mailee_status);
 }
 
 /**
@@ -173,3 +178,4 @@ function moderation_get_attribute($obj_id, $obj_type, $attribute) {
 
   exit();
 }
+

@@ -207,7 +207,7 @@ ini_set('url_rewriter.tags',        '');
  */
 #   'reverse_proxy' => TRUE,
 /**
- * reverse_proxy accepts an array of IP addresses.
+ * reverse_proxy accepthttp://lifehacker.com/5655827/s an array of IP addresses.
  *
  * Each element of this array is the IP address of any of your reverse
  * proxies. Filling this array Drupal will trust the information stored
@@ -232,4 +232,9 @@ ini_set('url_rewriter.tags',        '');
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # );
+$GLOBALS['simpletest_installed'] = TRUE;
+/*
+if (preg_match("/^simpletest\d+$/", $_SERVER['HTTP_USER_AGENT'])) {
+   $db_prefix = $_SERVER['HTTP_USER_AGENT'];
+}*/
 

@@ -2,7 +2,14 @@
     <?php echo $footer ?>
 	<div class="tarja container_12">
 		<div class="compartilhe grid_5">
-			<p>Compartilhe:</p> <a href="http://www.facebook.com/sharer.php?u=http://mesdomedicoweinmann.com.br" title="Compartilhe no Facebook" class="facebook" target="_blank">Facebook</a> <a href="http://twitter.com/home?status=Acesse%20www.mesdomedicoweinmann.com.br%20e%20faça%20uma%20homenagem%20para%20seu%20médico." title="Compartilhe no Twitter" class="twitter" target="_blank">Twitter</a>
+			<p>Compartilhe:</p>  
+
+			
+			<a name="fb_share" type="icon_link" href="http://www.facebook.com/sharer.php" title="Compartilhe no Facebook" class="facebook">Facebook</a>
+			
+			
+			<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+			<a href="http://twitter.com/home?status=Acesse%20www.mesdomedicoweinmann.com.br%20e%20faça%20uma%20homenagem%20para%20seu%20médico." title="Compartilhe no Twitter" class="twitter" target="_blank">Twitter</a>
 		</div>
 		<div class="links grid_5 prefix_2">
 			<?php echo l('Política de privacidade','politica-privacidade',aa('attributes',aa('id','politica'))); ?>

@@ -30,7 +30,7 @@ $class = strtolower(pathauto_cleanstring($title));
 		</div>
 	</div>
 
-    <?php if(in_url('mensagem')):?>
+    <?php if(in_url('mensagem')): ?>
     <div id="envelope" class="container_12 clearfix">
 	    <div class="cartao prefix_2 grid_7">
 	<?php else: ?>
@@ -43,6 +43,11 @@ $class = strtolower(pathauto_cleanstring($title));
 					<?php print $tabs; ?>
 				</div>
 			<?php endif; ?>
+			<?php if(!empty($messages) && user_is_logged_in()): ?>
+			    <div class="messages">
+			        <?php echo $messages ?>
+			    </div>
+            <?php endif ?>
    			<?php echo $content;?>
 	    </div>
 	</div>

@@ -48,7 +48,7 @@ function _weinmann_clear_doctor_name($word){
     else:
         $name = drupal_strtolower($word);
     endif;
-    return $word;
+    return $name;
 }
 
 function _weinmann_parse_doctor_emails($emails){

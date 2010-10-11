@@ -45,8 +45,7 @@ function mailee_send_mail(){
         $html = mailee_write_message($recipients);
         $data = array(
           'message[title]' => "Mês do Médico Weinmann",
-          //'message[subject]' => "Mês do Médico Weinmann",
-          'message[subject]' => "",
+          'message[subject]' => "Mês do Médico Weinmann",
           'message[from_name]' => 'Laboratório Weinmann',
           'message[from_email]' => 'marketing@weinmann.com.br',
           'message[html]' => $html,

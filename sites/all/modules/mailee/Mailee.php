@@ -7,26 +7,15 @@ class MaileeConfig extends ActiveResource {
 }
 
 class MaileeContact extends MaileeConfig{
+
     function find_by_internal_id($iid){
         $find = $this->find('first', array('internal_id' => $iid));
         return $find[0];
     }
 
-    function unsubscribe($data=array()){
-      #E.g. data --> {:reason => 'Trip to nowhere', :spam => false}
-      //if(!$data['reason']) $data['reason'] = 'Motivo não especificado';
-      //, array('unsubscribe' => $data)
-      return $this->put('unsubscribe');
-    }
-
     function find_user_by_email($email){
         $contact = pos($this->find('first',aa('email',$email)));
         return $contact->_data;
-    }
-
-    function update($data){
-       $this->_data = $data;
-       $uri = $this->site . $this->element_name . '/' . $this->_data['id'] . '.xml';
     }
 }
 

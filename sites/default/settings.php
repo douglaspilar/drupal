@@ -98,6 +98,12 @@ else:
 endif;
 $db_prefix = '';
 
+// Drupal 6.x needed this hack to install simpletest module
+$GLOBALS['simpletest_installed'] = TRUE;
+if (preg_match("/^simpletest\d+$/", $_SERVER['HTTP_USER_AGENT'])) {
+   $db_prefix = $_SERVER['HTTP_USER_AGENT'];
+}
+
 /**
  * Access control for update.php script
  *
@@ -232,9 +238,4 @@ ini_set('url_rewriter.tags',        '');
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # );
-$GLOBALS['simpletest_installed'] = TRUE;
-/*
-if (preg_match("/^simpletest\d+$/", $_SERVER['HTTP_USER_AGENT'])) {
-   $db_prefix = $_SERVER['HTTP_USER_AGENT'];
-}*/
 
